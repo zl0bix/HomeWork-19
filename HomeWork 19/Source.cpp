@@ -6,9 +6,9 @@
 int functionEx1(int num1,int num2);//Ex1
 int mirror_number(int num);//Ex2
 int arr_search(int arr[], const int length, int num);//Ex3
-
+void arr_AB(int arr[], const int length, int num1, int num2);//Ex4
 int main() {
-	int n1, n, n0, n2;
+	int n0, n, n1, n2, n3, n4;
 
 		//Задача 1
 		//Создайте функцию, которая принимает два числа и
@@ -32,7 +32,14 @@ int main() {
 	std::cin >> n2;
 	std::cout << arr_search(arr3, size3, n2);
 	std::cout << std::endl;
-	
+		//Задача 4
+		//	Создайте функцию, которая принимает пустой
+		//	массив, его длину и два числа A и B, которые являются
+		//	началом и концом диапазона.Функция должна
+		//	заполнять массив случайными числами из указанного
+		//	диапазона.
+	const int size4 = 100;
+	int arr4[size4]{};
 	return 0;
 }
 
@@ -101,5 +108,16 @@ int arr_search(int arr[], const int length, int num) { //Ex3
 				return i;			
 	}
 	else return -1;
-
+}
+void arr_AB(int arr[], const int length, int num1, int num2) {//Ex4
+		if (num1 < 0 || num2 < 0)
+			std::cout << "Entor ERROR!!!";
+		if (num1 > num2)
+			std::swap(num1, num2);
+		for (int i = 0; i < length; i++)	{
+			if (arr[i] >= num1 && arr[i] <= num2) {
+				srand(time(NULL));
+					arr[i] = rand() % 11;
+			}
+		}
 }
